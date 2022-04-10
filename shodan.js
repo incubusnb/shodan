@@ -23,3 +23,8 @@ const hasHacknetServers = unlockedHacknetServers() ? true : false;
 // Deploy relevent modules
 
 //
+
+/** @param {NS} ns */
+export async function main(ns) {
+  ns.tprint("shodan");
+}

@@ -1,3 +1,11 @@
+//
+//
+//
+// Warning! Will delete current home server contants. Backup files before running script!!!
+//
+//
+//
+
 let options;
 const argsSchema = [
   ["github", "incubusnb"],
@@ -6,8 +14,8 @@ const argsSchema = [
   ["download", []], // By default, all supported files in the repository will be downloaded. Override with just a subset of files here
   ["new-file", []], // If a repository listing fails, only files returned by ns.ls() will be downloaded. You can add additional files to seek out here.
   ["subfolder", ""], // Can be set to download to a sub-folder that is not part of the remote repository structure
-  ["extension", [".js", ".ns", ".txt", ".script"]], // Files to download by extension
-  ["omit-folder", ["/Temp/"]], // Folders to omit
+  ["extension", [".js", ".txt"]], // Files to download by extension
+  ["omit-folder", []], // Folders to omit
 ];
 
 export function autocomplete(data, args) {
@@ -54,10 +62,6 @@ export async function main(ns) {
         `WARNING: "${localFilePath}" was not updated. (Currently running or not located at ${remoteFilePath} )`
       );
   }
-  ns.tprint(
-    `INFO: Pull complete. If you have any questions or issues, head over to the Bitburner #alains-scripts Discord channel: ` +
-      `https://discord.com/channels/415207508303544321/935667531111342200`
-  );
 }
 
 /** Joins all arguments as components in a path, e.g. pathJoin("foo", "bar", "/baz") = "foo/bar/baz" **/
